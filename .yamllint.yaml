@@ -1,0 +1,23 @@
+---
+extends: default
+
+ignore:
+  - terraform1/stacks/definitions/*/.terraform/*
+
+rules:
+  comments:
+    ignore: |
+      *.cc.yml
+  document-start:
+    ignore: |
+      ansible/
+      .gitlab-ci.yml
+      .pre-commit-config.yaml
+      *.cc.yml
+  line-length:
+    ignore: |
+      ansible/
+      .gitlab-ci.yml
+  new-line-at-end-of-file: enable
+  new-lines:
+    type: unix
