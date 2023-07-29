@@ -8,3 +8,6 @@ bin
 # Editor files
 .idea
 .vscode
+
+# Generated files
+.env

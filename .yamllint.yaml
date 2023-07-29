@@ -8,9 +8,13 @@ rules:
   comments:
     ignore: |
       *.cc.yml
+  brackets:
+    ignore: |
+      docker-compose.yml
   document-start:
     ignore: |
       ansible/
+      docker-compose.yml
       .gitlab-ci.yml
       .pre-commit-config.yaml
       *.cc.yml
