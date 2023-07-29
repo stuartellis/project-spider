@@ -1,2 +1,2 @@
-recipe-name:
-    @echo 'This is a recipe!'
+pre-commit-check:
+    @pre-commit run --all-files
