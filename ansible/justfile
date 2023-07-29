@@ -1,0 +1,9 @@
+set fallback := true
+set dotenv-load := true
+
+ansible-develop-init:
+    pipx install yamllint
+    pipx install ansible-core
+    pipx inject --include-apps ansible-core ansible-lint
+    pipx inject --include-apps ansible-core molecule
+    pipx inject ansible-core 'molecule-plugins[docker]'
