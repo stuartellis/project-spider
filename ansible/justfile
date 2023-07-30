@@ -1,9 +1,22 @@
+#!/usr/bin/env just --justfile
+#
+# Ansible Configuration for Just Task Runner
+#
+# See: https://just.systems/man/en/
+
 set fallback := true
 set dotenv-load := true
 
+alias init := ansible-develop-init
+
+# Lists available recipes
+default:
+    @just --list
+
+# Installs development requirements for Ansible
 ansible-develop-init:
-    pipx install yamllint
-    pipx install ansible-core
-    pipx inject --include-apps ansible-core ansible-lint
-    pipx inject --include-apps ansible-core molecule
-    pipx inject ansible-core 'molecule-plugins[docker]'
+    @pipx install yamllint
+    @pipx install ansible-core
+    @pipx inject --include-apps ansible-core ansible-lint
+    @pipx inject --include-apps ansible-core molecule
+    @pipx inject ansible-core 'molecule-plugins[docker]'
