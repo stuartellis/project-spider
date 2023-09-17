@@ -1,8 +1,10 @@
+from typing import Any
+
 from urllib3 import Retry
 from requests import Session
 from requests.adapters import HTTPAdapter
 
-def get_session() -> Session:
+def get_session(headers: list[Any] = []) -> Session:
     retry_strategy = Retry(total=3,
                            backoff_factor=1,
                            status_forcelist=[429, 500, 502, 503, 504],
@@ -11,6 +13,7 @@ def get_session() -> Session:
     adapter = HTTPAdapter(max_retries=retry_strategy)
 
     session = Session()
+    session.headers.update(headers)
     session.mount("https://", adapter)
     session.mount("http://", adapter)
     return session
